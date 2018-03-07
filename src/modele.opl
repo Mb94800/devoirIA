@@ -1,0 +1,51 @@
+// -------------- Données du problème -----------
+
+int jours ;
+
+int creneaux ;
+
+tuple Bloc {
+	String idB ; 
+	{Bloc} intervenantsBloc ;
+}
+
+tuple Session {
+	int idS ;
+	int d;
+	Bloc bloc ;
+
+}
+
+tuple precede {
+	Session s1 ;
+	Session s2 ;
+	// N-ième jour que la s2 doit attendre avant de débuter, après la fin de s1
+	int N;
+}
+
+tuple Salle {
+	int idSalle ;
+	// Nombre maximum d'intervnenants que la salle peut acceuillir
+	int N ;
+}
+
+tuple BesoinSpecifique {
+	int idSalle ;
+	// Identifiants de session qui doivent se dérouler dans la salle idSalle
+	{int} idS ;
+}
+
+tuple Indisponible {
+	// identifiant d'intervenant
+	int id ;
+	// Jour qui peut etre entier, ou une paire d'entier séparés par "-" ou virgules
+	string J;
+	{int} creneaux ;
+}
+
+tuple Indemnite {
+	int J ;
+	int V ;
+	int S ;
+	{int} idIntervenants;	
+}
